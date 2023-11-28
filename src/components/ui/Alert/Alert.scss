@@ -1,0 +1,15 @@
+.Alert {
+  opacity: 0; /* Start with opacity set to 0 to make it invisible */
+  animation: fadeInRightToLeft 0.5s forwards; /* Animation name, duration, and fill mode */
+}
+
+@keyframes fadeInRightToLeft {
+  from {
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateX(100%); /* Slide in from the right */
+  }
+  to {
+    opacity: 1; /* End with opacity 1 */
+    transform: translateX(0); /* No horizontal translation, fully visible */
+  }
+}
