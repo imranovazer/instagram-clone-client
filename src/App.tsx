@@ -10,18 +10,18 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import Layout from "./components/Layout";
 
 import ErrorPage from "./pages/404";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
- 
   const user = useAppSelector((state) => state.user.user);
-  
+
   return (
     <Routes>
       <Route element={<ProtectedRoute shouldAuth={true} />}>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
-        
       </Route>
 
       <Route element={<ProtectedRoute shouldAuth={false} />}>

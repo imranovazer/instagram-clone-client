@@ -1,8 +1,21 @@
+export interface Post {
+  _id: string;
+  name: string;
+  description: string;
+  photo: string;
+  author: any;
+  likes: [any];
+  comments: [any];
+}
+
 export interface User {
   email: String;
-  name: String;
+  username: String;
   photo: String;
-  role: String;
+
   _id: string;
-  wallet?: number;
+  posts: [any];
+  followers: [any];
+  following: [any];
+  favoritePosts: [Post];
 }

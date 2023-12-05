@@ -18,7 +18,7 @@ function AuthProvider({ children }: AuthProviderProps) {
     const verify = async () => {
       try {
         const res = await axios.post(
-          `${import.meta.env.VITE_BASE_URL}/users/echo`,
+          `${import.meta.env.VITE_BASE_URL}/auth/echo`,
           {},
           { withCredentials: true }
         );
@@ -33,7 +33,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         if (error.response && error.response.status === 401) {
           try {
             const refreshTokenResponse = await axios.post(
-              `${import.meta.env.VITE_BASE_URL}/users/refresh-token`,
+              `${import.meta.env.VITE_BASE_URL}/auth/refresh-token`,
               {},
               { withCredentials: true }
             );
