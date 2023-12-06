@@ -3,12 +3,12 @@ import Navbar from "./Navbar/Navbar";
 
 function Layout() {
   return (
-    <>
-      <div className="flex">
-        <Navbar />
+    <div className="flex h-screen">
+      <Navbar />
+      <div className="w-full  overflow-x-auto">
         <Outlet />
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,8 +1,7 @@
-import React from "react";
 import { Post } from "../types";
 import { FaHeart, FaComment } from "react-icons/fa";
 
-const PostGrid = ({ data }: { data: [Post] }) => {
+const PostGrid = ({ data }: { data: [Post] | [] }) => {
   return (
     <div className=" w-full grid grid-cols-3 transition-all">
       {data
@@ -19,15 +18,15 @@ const PostGrid = ({ data }: { data: [Post] }) => {
             "
               >
                 <p className="flex items-center gap-2">
-                  <FaHeart /> <span>{post.likes.length}</span>
+                  <FaHeart /> <span>{post?.likes.length}</span>
                 </p>
                 <p className="flex items-center gap-2">
-                  <FaComment /> <span>{post.comments.length}</span>
+                  <FaComment /> <span>{post?.comments.length}</span>
                 </p>
               </div>
               <img
                 className="w-full aspect-square object-cover"
-                src={`${import.meta.env.VITE_POST_IMG + post.photo}`}
+                src={`${import.meta.env.VITE_POST_IMG + post?.photo}`}
                 alt="image"
               />
             </div>

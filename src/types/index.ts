@@ -14,8 +14,8 @@ export interface User {
   photo: String;
 
   _id: string;
-  posts: [any];
-  followers: [any];
-  following: [any];
-  favoritePosts: [Post];
+  posts: [] | [Post];
+  followers: [] | [User];
+  following: [] | [User];
+  favoritePosts: [] | [Post];
 }

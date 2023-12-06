@@ -14,7 +14,7 @@ axiosInstance.interceptors.response.use(
       try {
         //const res =
         await axios.post(
-          `${import.meta.env.VITE_BASE_URL}/users/refresh-token`,
+          `${import.meta.env.VITE_BASE_URL}/auth/refresh-token`,
           {},
           { withCredentials: true } // Send refresh token in request
         );

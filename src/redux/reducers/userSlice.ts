@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store/store";
-import { User } from "../../types";
+import { Post, User } from "../../types";
 
 // Define a type for the slice state
 
@@ -16,9 +16,12 @@ const initialState: UserState = {
   loading: true,
   user: {
     email: "",
-    name: "",
+    username: "",
     photo: "",
-    role: "",
+    posts: [],
+    followers: [],
+    following: [],
+    favoritePosts: [],
     _id: "",
   },
 };
@@ -28,6 +31,11 @@ export const userSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
+    addMyNewPost: (state, action: PayloadAction<Post>) => {
+      // console.log(action.payload);
+
+      state.user.posts.push(action.payload);
+    },
     setIsAuth: (state, action: PayloadAction<boolean>) => {
       state.isAuth = action.payload;
     },
@@ -45,7 +53,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setIsAuth, setILoading, setUser, logoutUser } =
+export const { setIsAuth, setILoading, setUser, logoutUser, addMyNewPost } =
   userSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
