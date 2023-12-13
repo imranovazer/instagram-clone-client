@@ -11,8 +11,10 @@ axiosInstance.interceptors.response.use(
   },
   async (error) => {
     if (error.response.status === 401) {
+      console.log("geerererer");
       try {
         //const res =
+
         await axios.post(
           `${import.meta.env.VITE_BASE_URL}/auth/refresh-token`,
           {},

@@ -11,6 +11,9 @@ import Layout from "./components/Layout";
 
 import ErrorPage from "./pages/404";
 import Profile from "./pages/Profile/Profile";
+import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
+import User from "./pages/User/User";
+import Explore from "./pages/Explore/Explore";
 
 function App() {
   const user = useAppSelector((state) => state.user.user);
@@ -20,7 +23,10 @@ function App() {
       <Route element={<ProtectedRoute shouldAuth={true} />}>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/user/:id" element={<User />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/settings" element={<ProfileSettings />} />
         </Route>
       </Route>
 

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { RxCross2 } from "react-icons/rx";
-
+import { motion } from "framer-motion";
 function MyModal({
   children,
   active,
@@ -14,11 +14,18 @@ function MyModal({
 }) {
   return active ? (
     <div
-      className="fixed z-50 left-0 top-0 w-full h-full flex items-center justify-center "
+      className="absolute z-50 h-screen overflow-y-scroll  left-0 top-0 w-full   flex items-center justify-center p-5"
       style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
       onClick={() => setActive(false)}
     >
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
           e.stopPropagation()
         }
@@ -31,8 +38,8 @@ function MyModal({
             <RxCross2 />
           </button>
         </nav>
-        <div className="w-full h-full">{children}</div>
-      </div>
+        <div className="w-full h-full ">{children}</div>
+      </motion.div>
     </div>
   ) : null;
 }

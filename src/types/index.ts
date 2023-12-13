@@ -3,19 +3,24 @@ export interface Post {
   name: string;
   description: string;
   photo: string;
-  author: any;
-  likes: [any];
-  comments: [any];
+  author: User;
+  likes: any[];
+  comments: Comment[];
 }
 
+export interface Comment {
+  _id: string | undefined;
+  text: string;
+  post: string | undefined;
+  user: User;
+}
 export interface User {
-  email: String;
-  username: String;
-  photo: String;
-
+  email: string;
+  username: string;
+  photo: string;
   _id: string;
-  posts: [] | [Post];
-  followers: [] | [User];
-  following: [] | [User];
-  favoritePosts: [] | [Post];
+  posts: Post[];
+  followers: User[];
+  following: User[];
+  favoritePosts: Post[];
 }

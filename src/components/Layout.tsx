@@ -5,7 +5,7 @@ function Layout() {
   return (
     <div className="flex h-screen">
       <Navbar />
-      <div className="w-full  overflow-x-auto">
+      <div className="w-full  overflow-y-auto">
         <Outlet />
       </div>
     </div>

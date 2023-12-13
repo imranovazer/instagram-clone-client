@@ -1,0 +1,25 @@
+  const [getAllMessages, getIsLoading] = useFetching(async () => {
+    const res = await messageApi.getAll();
+    console.log(res);
+    setMessages(res);
+  });
+
+  const [deleteMessage, isLoadingMessage] = useLoading({
+    callback: async (id) => {
+      await messageApi.deleteById(id);
+      setMessages((prev) => prev.filter((message) => message.id !== id));
+      setOpen(false);
+      setSelectedMessage();
+    },
+    onError: () => {
+      console.log("Error");
+    },
+  });
+
+  const handleDelete = (id) => {
+    deleteMessage(id);
+  };
+
+  useEffect(() => {
+    getAllMessages();
+  }, []);
