@@ -21,7 +21,6 @@ function Home() {
   const [activePost, setActivePost] = useState<Post | null | undefined>(null);
   const [getAllPosts, getIsLoading] = useFetching(async () => {
     const res = await homeApi.getFollowingUsersPosts();
-    console.log(res);
     setPosts(res);
   });
   useEffect(() => {
