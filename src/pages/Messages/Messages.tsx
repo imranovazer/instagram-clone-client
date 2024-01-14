@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useAppSelector } from "../../redux/store/hooks";
 import { socket } from "../../socket";
-// const testData = [
-//   {
-//     username: "imranovazer",
-//     text: "Salam",
-//   },
-//   {
-//     username: "ehmed",
-//     text: "Necesen",
-//   },
-// ];
+const testData = [
+  {
+    username: "imranovazer",
+    text: "Salam",
+  },
+  {
+    username: "ehmed",
+    text: "Necesen",
+  },
+];
 const Messages = () => {
   const myUserdata = useAppSelector((state) => state.user.user);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(testData);
 
   const [userInput, setUserInput] = useState("");
 
@@ -41,7 +41,7 @@ const Messages = () => {
 
   return (
     <div className="container mx-auto flex h-full">
-      <nav className="left flex flex-col border-1 w-full max-w-[300px] p-5 border-r">
+      <nav className="left flex flex-col border-1 w-full max-w-[300px] p-5 border-r justify-between">
         <div className="flex items-center gap-5 border border-slate-400  p-2">
           <img
             className="w-[50px] rounded-full"
@@ -50,6 +50,12 @@ const Messages = () => {
           />
           <p>{myUserdata.username}</p>
         </div>
+
+        <footer>
+          <button className="bg-blue-500 w-full rounded-lg p-2 font-bold hover:bg-blue-700  text-white ">
+            New chat
+          </button>
+        </footer>
       </nav>
       <div className="right h-full flex flex-col  justify-between p-5 w-full">
         <ul className="w-full flex flex-col gap-5 overflow-y-auto p-5">

@@ -24,3 +24,9 @@ export interface User {
   following: User[];
   favoritePosts: Post[];
 }
+
+export interface Message {  
+  _id: string ,
+  by: User ,
+  text : string
+}

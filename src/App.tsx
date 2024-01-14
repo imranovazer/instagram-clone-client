@@ -34,7 +34,7 @@ function App() {
     // function onFooEvent(value) {
     //   setFooEvents(previous => [...previous, value]);
     // }
-    console.log("SOCKET CONNCTION");
+    // console.log("SOCKET CONNCTION");
 
     socket.on("connect", onConnect);
     socket.on("disconnect", onDisconnect);
