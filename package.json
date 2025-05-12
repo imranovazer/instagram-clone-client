@@ -13,7 +13,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "antd": "^5.11.5",
     "antd-img-crop": "^4.18.0",
-    "axios": "^1.6.2",
+    "axios": "^1.8.2",
     "framer-motion": "^10.16.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
